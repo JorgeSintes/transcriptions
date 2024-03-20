@@ -1,8 +1,9 @@
 \version "2.24.3"
 
-% \include "jazzchords.ily"
-% \include "lilyjazz.ily"
-% \include "jazzextras.ily"
+\include "jazzchords.ily"
+\include "lilyjazz.ily"
+\include "jazzextras.ily"
+\include "morejazz.ily"
 
 \header {
   dedication = ""
@@ -31,7 +32,7 @@ melody = \relative c' {
   
   f8 f f f f f r4 | f4 r8 f e8 d r e | f c r c c2 | r2 r4 r8 c | \break
   f g a bes c a bes c16 bes | a8 f d bes ces aes' g f | \tuplet 3/2 {e16 f e} d8 c b bes d, f a | r g4. r4 g8 a | \break
-  bes c a bes g g4. | r8 c r d \tuplet 3/2 {e8 f4} \tuplet 3/2 {d8 e4} | c8 c ~ c4 r g'8 a | bes d, f a g f e d | \break
+  bes-"rushed" c a bes g g4. | r8 c r d \tuplet 3/2 {e8 f4} \tuplet 3/2 {d8 e4} | c8 c ~ c4 r g'8 a | bes d, f a g f e d | \break
   f4 d8 bes a g4. | f'4 des8 c bes c des f | e c d e c a4. |   r4 \tuplet 5/4 {g16 bes d f a} c8 a ~ a4 | \break
   e4. d8 e d ~ d4 | g4. f8 e f g a | f c bes \xNote f a f' r4 | r2 r4 r8 d | \break
   f d g gis a f c bes | a f'4. ees8 \xNote g, c ees | d des c ces bes g f ees | d bes'4. r4 r8 bes | \break
@@ -42,10 +43,19 @@ melody = \relative c' {
   e c d e c a ~ a4 | r4 gis16 bes d f \tuplet 3/2 {gis8 bes d} f4 ~ | f4. e8 c8 c4. | r4 r8 c~ c4. a8 | \break
   g8 g ~ g2 r4 | r8 f g a c a g f | \tuplet 3/2 {e f fis } \tuplet 3/2 {g fis f } e d c b | bes c d e a g r8 f ~ | \break
   f4 d8 f a f d4 |  f4 d8 f gis a f g | f ees c bes a f' ~ f4 | r4 r8 f ~ f4. c8 | \break
-  f g a4 d,4. c8 | d4 c8 d r4. c8 | f g a4 d,4. c8 | ees4 c8 d c4 r8 c | \break
-  f c gis' a f c bes \xNote f | a f' ~ f2 ees8 g | f d bes g c bes ~ bes4 | bes4 r8 f'8 ~ f4 d8 ees | \break
+  f g a4 d,4. c8 | d8 c8 r d r4. c8 | f g a4 d,4. c8 | ees4 c8 d c4 r8 c | \break
+  f c gis' a f c bes \xNote f | a f' ~ f2 ees8 g | f d bes g c bes ~ bes4 ~ | bes4 r8 f'8 ~ f4 d8 ees | \break
   f f f f f4 d8 f | aes \xNote f aes f ~ f4 aes,8 bes | g' c, c c c4 d8 ees ~ | ees4 c8 d r4 r8 c | \break
-  f4. d8 f d r8 f ~ | f4 d8 f gis16( a f8) c bes | a f' ~ f4 d r |
+  f4. d8 f d r8 f ~ | f4 d8 f gis16( a f8) c bes | a f' ~ f4 d r | r8 c'4. bes8 f gis( a) \bar "||" \break
+
+  f4. a8 r4. f8 | ces' bes ces bes aes f aes bes | ces bes ces bes aes f ees c | ces f, bes f a4 f'8 f ~ | \break
+  f4 d8 f g f d f | r4. des8 ~ des4 \glissando c'4 ~ | c4. a8 c a ~ a4 ~ | a4 r2. | \break
+  c,2 \glissando c'8 a ~ a4 | r8 des, r4 des'8 bes r4 | r8 d ~ d4 c8 d, f4 | bes4 bes8 a bes a f c | \break
+  bes \xNote f a f' r4. aes8 ~ | aes4 f8 g f ees c bes | a f' ~ f4 ees8 c r4 | r f4 ~ f4. c8 | \break
+  f g a d c c, f bes | a c, d g f d bes \xNote f | a \xNote f bes \xNote f b( c) ~ c4 ~ | c4 r8 f8 ~ f2 ~ | \break
+  f4 \tuplet 3/2 {aes16 g ges} f8 ~ f8 \tuplet 3/2 {aes16 g ges} f4 | \tuplet 3/2 {aes16 g ges} f8 ~ f8 \tuplet 3/2 {aes16 g ges} f4 aes8 f8 ~ | f8 f8 ~ f4 ~ f8 d ees f | d bes ~ bes4 r4. bes'8 | \break
+  r8 bes4. g8 f d c |  \tuplet 3/2 {b ais b} \tuplet 3/2 {d cis d} \tuplet 3/2 {f e f } aes f ~ | f4 d8 f aes f c b | bes f' r2 aes4 | \break
+  f8 f r2 c'4 | f,8 f r2 aes4 | f aes f8 aes4 f8 ~ | f8 ees c bes aes4 f8 g | f d ~ d2 r4 \bar "|."
 
 }
 
@@ -68,7 +78,10 @@ harmonies = \chordmode {
       \harmonies
       \harmonies
       \harmonies
-
+      \harmonies
+      \chordmode {
+        f1:7+
+      }
     }
     \new Staff \melody
   >>
