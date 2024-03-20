@@ -1,0 +1,2 @@
+# Jazz Transcriptions
+This is a repository dedicated to my jazz transcriptions, featuring a collection of musical pieces and solos transcribed from various artists and instruments. The transcriptions are available in .ly (LilyPond) and .pdf formats for convenience. Some are only available in pdf because they were written long ago using Sibelius.
