@@ -10,18 +10,22 @@
   title = "Three O'Clock in the Morning"
   subtitle = "from Dexter Gordon's record \"GO\" (1962)"
   composer = "Dexter Gordon"
-  poet = "0:00 - 3:43"
+  poet = ""
   tagline =  "Transcribed by Jorge Sintes"
   copyright = "Transcribed by Jorge Sintes"
 }
 
-melody = \relative c' {
+melody = \relative c''' {
+  \key f \major
   \numericTimeSignature\time 4/4
   \tempo 4 = 140
   \clef treble
   \accidentalStyle modern
 
-  f4 r r e8 f ~ | f4 r a c | g'2 ~ g4 ges8 f ~ | f2 r | \break
+  {\tiny a2^\markup {\normalsize "piano"} f2 g2 c,2 | c2 g'2 a2 f2 } \bar "||"
+  \normalsize
+
+  f,4 r r e8 f ~ | f4 r a c | g'2 ~ g4 ges8 f ~ | f2 r | \break
   e8 f ~ f4 r d8 c ~ | c2 r4  dis,8 e ~ | e2 r | r2 r4 c'8 g ~ | \break
   g4 r r fis8 g ~ | g4 r bes4 d | a'8 a ~ a2 aes8 g ~ |  g4 r r2 | \break
   r4 r8 f e4 g | f8 f ~ f4 r d8  c ~ | c c ~ c4  r c8 d | f ees ~ ees4 c8 bes ~ bes4 | \break
@@ -55,8 +59,23 @@ melody = \relative c' {
   f g a d c c, f bes | a c, d g f d bes \xNote f | a \xNote f bes \xNote f b( c) ~ c4 ~ | c4 r8 f8 ~ f2 ~ | \break
   f4 \tuplet 3/2 {aes16 g ges} f8 ~ f8 \tuplet 3/2 {aes16 g ges} f4 | \tuplet 3/2 {aes16 g ges} f8 ~ f8 \tuplet 3/2 {aes16 g ges} f4 aes8 f8 ~ | f8 f8 ~ f4 ~ f8 d ees f | d bes ~ bes4 r4. bes'8 | \break
   r8 bes4. g8 f d c |  \tuplet 3/2 {b ais b} \tuplet 3/2 {d cis d} \tuplet 3/2 {f e f } aes f ~ | f4 d8 f aes f c b | bes f' r2 aes4 | \break
-  f8 f r2 c'4 | f,8 f r2 aes4 | f aes f8 aes4 f8 ~ | f8 ees c bes aes4 f8 g | f d ~ d2 r4 \bar "|."
+  f8 f r2 c'4 | f,8 f r2 aes4 | f aes f8 aes4 f8 ~ | f8 ees c bes aes4 f8 g |  \bar "||" f d ~ d2 r4 \break
 
+  \compressEmptyMeasures
+  \textMark "Piano one chorus solo"
+  R1*31   \bar "||" \break
+  \expandEmptyMeasures
+
+  f4 r8 f' d4 c8 a | c4. g8 r4. a8 | g^"a bit rushed" f g a c e d4 | r2 e8 f d e | \break
+  c \glissando c'4 a8 ~ a4 r4 | r4 \tuplet 3/2 { r8 g aes } f d b4 | r4 d16 cis d e f2 | bes,16 a bes c d8 g,16 fis g a bes8 r4 | \break
+  r8 \tuplet 3/2 {g16 bes d} \tuplet 3/2 {f a c} a8 ~ a16 c aes8 c16 g8. ~ | g4. f8 e d c b | bes c d e a \xNote e a g~ | g4 r4 r8 f gis a | \break
+  f c r4 r8 f gis a | f c bes f a c d c | f4. aes8 r4. c,8 | f8 ees ~ ees4 c8 bes ~ bes4 | \break
+  f4 r4 r4 e8 f ~ | f4 r4 a c | g'8 g ~ g2 ges8 f ~ | f4 r2. | \break
+  r4. f8 e4 f | g f cis4. d8  | r8 f, a c bes4 a16 bes d f | a8 bes g a f4 r | \break
+  r2 d8 cis d e | f f ~ f2 e8 d | f f ~ f2 c8 a ~ | a2 r8 bes4 c8 | \break
+  a'2. ~ \tuplet 3/2 {a8 g f } | e2. r4 | 
+  {\tiny a2^\markup {\normalsize "piano"} f2 g2 c,2 | c2 g'2 a2 f2 }
+  \bar "|."
 }
 
 harmonies = \chordmode {
@@ -70,11 +89,23 @@ harmonies = \chordmode {
   g1:m7 | c:7 | f2 d:7 | g:m7 c:7 |
 }
 
+last_harmonies = \chordmode {
+  f1:7+ | f:7+ | f:7+ | f:7+ |
+  f1:7+ | a2:m7 d:7 | g1:m7 | c:7 |
+  g:m7 | g:m7 | g:m7 | g:m7 |
+  g:m7 | c:7 | f2 d:7 | g:m7 c:7 |
+  f1:7+ | f:7+ | f:7+ | f:7+ |
+  f1:7+ | f:7 | bes:7+ | bes:7+ |
+  bes:7+ | bes:7 | f:7+ | a2:m7 d:7 |
+  g1:m7 | c:7 | s1*4 |
+}
+
 \score {
   <<
     \new ChordNames {
       \set chordChanges = ##t
 
+      s1*4
       \harmonies
       \harmonies
       \harmonies
@@ -82,6 +113,8 @@ harmonies = \chordmode {
       \chordmode {
         f1:7+
       }
+      s1*31
+      \last_harmonies
     }
     \new Staff \melody
   >>
